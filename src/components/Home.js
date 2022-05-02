@@ -4,7 +4,9 @@ import apiUtils from "../utils/apiUtils";
 
 const Home = () => {
   const [report, setReport] = useState({});
+  
   const URL = apiUtils.getUrl();
+
   useEffect(() => {
     const getReport = async () => {
       const response = await axios.get(URL);
