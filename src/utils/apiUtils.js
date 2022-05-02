@@ -1,26 +1,25 @@
 import axios from "axios";
 
-const URL = 'http://localhost:8000/report';
+const URL = "http://localhost:8000/";
 
 const apiUtils = () => {
+  const getUrl = () => {
+    return URL;
+  };
 
-    const getUrl = () => {
-        return URL;
-    }
+  const getAuthAxios = () => {
+    const authAxios = axios.create({
+      headers: {
+        "x-access-token": localStorage.getItem("jwtToken"),
+      },
+    });
+    return authAxios;
+  };
 
-    const getAuthAxios = () => {
-        const authAxios = axios.create({
-            headers: {
-                'x-access-token': localStorage.getItem('jwtToken')
-            }
-        })
-        return authAxios
-    }
-
-    return {
-        getUrl,
-        getAuthAxios
-    }
-}
+  return {
+    getUrl,
+    getAuthAxios,
+  };
+};
 
 export default apiUtils();
