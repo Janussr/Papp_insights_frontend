@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react"
 import axios from "axios"
+import apiUtils from "../utils/apiUtils";
 
 const Home = () => {
     const [report, setReport] = useState({});
+
+    const URL = apiUtils.getUrl()
 
     useEffect(() => {
         const getReport = async () => {
