@@ -33,9 +33,8 @@ return (
         <h1>Create Report</h1>
         <p>{statusMessage}</p>
         <form onChange={handleInput}>
-            <input className="form-control addInput" id="time" placeholder="Enter time" type="text"></input>
             <input className="form-control addInput" id="parkingAreas" placeholder="Enter parking area" type="text"></input>
-
+            <input className="form-control addInput" id="time" placeholder="Enter time" type="text"></input>
         </form>
         <button onClick={createReport} className="btn btn-primary mt-3">Create</button>
     </div>
