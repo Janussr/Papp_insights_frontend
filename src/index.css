@@ -55,3 +55,19 @@ ul.header li a:hover:not(.active) {
   font-weight: bold;
   font-size: 16px;
 }
+
+
+/* ReportPage*/
+
+.center {
+  display: flex;
+  z-index: 10;
+  justify-content: center;
+  height: 90vh;
+  align-items: center;
+  flex-direction: column;
+  gap:20px;
+  border: 40px;
+  border-color: #ed553b;
+  border-style: solid;
+}

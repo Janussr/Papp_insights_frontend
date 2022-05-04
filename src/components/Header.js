@@ -6,6 +6,8 @@ const Header = () => {
         <div>
             <ul className='header'>
                 <li><NavLink activeclassname='active' to='/'>Home</NavLink></li>
+
+                <li> <NavLink activeclassname='active' to='/create-report'>Create Report</NavLink></li>
             </ul>
         </div >
     )
