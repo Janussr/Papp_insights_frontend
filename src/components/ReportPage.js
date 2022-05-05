@@ -8,6 +8,12 @@ import 'react-date-range/dist/styles.css'; // main css file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 import { DateRange  } from 'react-date-range';
 
+import React, { Component } from 'react'
+import Select from 'react-select'
+import AsyncSelect from 'react-select/async';
+
+
+
 
 //npm install react-date-range might have to use this if datepicker doesnt work.
 
@@ -15,8 +21,25 @@ const ReportPage = () => {
     const init = {time: "", parkingAreas: "", report: { id: 0 } };
     const [report, setReport] = useState({});
     const [statusMessage, setStatusMessage] = useState("");
+    const [parkingAreas, setParkingAreas] = useState([]);
 
     const URL = apiUtils.getUrl()
+
+    useEffect(() => {
+        const getParkingArea = async () => {
+          const response = await axios.get(URL + 'parkingareas');
+          setParkingAreas(response.data.parkingareas);
+          console.log(response.data.parkingareas);
+        };
+        getParkingArea();
+      }, [setParkingAreas]);
+
+
+      const SearchLocationBar = () => (
+        <Select options={parkingAreas} />
+      )
+
+
 
     const handleInput = (event) => {
         setReport({ ...report,})
@@ -45,10 +68,11 @@ const [state, setState] = useState([
 
 return (
 
+    
     <div className="center">
         <p>{statusMessage}</p>
         <form onChange={handleInput}>
-        <input className="form-control addInput" id="parkingAreas" placeholder="Enter parking area" type="text"></input>
+        <SearchLocationBar/>
         </form>
 <DateRange
 editableDateInputs={true}
@@ -63,4 +87,7 @@ ranges={state}
 
 
 export default ReportPage
+<<<<<<< HEAD
 
+=======
+>>>>>>> main
