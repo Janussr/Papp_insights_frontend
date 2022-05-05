@@ -85,9 +85,5 @@ ranges={state}
     )
 }
 
-<<<<<<< HEAD
 
-export default Report_page
-=======
 export default ReportPage
->>>>>>> 8945e34949341c39048bb2a8e78d18e930bbb959
