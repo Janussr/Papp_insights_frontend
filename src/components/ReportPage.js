@@ -9,7 +9,9 @@ import 'react-date-range/dist/theme/default.css'; // theme css file
 import { DateRange  } from 'react-date-range';
 
 
-const Report_page = () => {
+//npm install react-date-range might have to use this if datepicker doesnt work.
+
+const ReportPage = () => {
     const init = {time: "", parkingAreas: "", report: { id: 0 } };
     const [report, setReport] = useState({});
     const [statusMessage, setStatusMessage] = useState("");
@@ -59,4 +61,4 @@ ranges={state}
     )
 }
 
-export default Report_page
+export default ReportPage
