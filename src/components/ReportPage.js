@@ -2,6 +2,12 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react"
 import axios from "axios"
 import apiUtils from "../utils/apiUtils"
+import 'react-date-range/dist/styles.css';
+import 'react-date-range/dist/theme/default.css';
+import 'react-date-range/dist/styles.css'; // main css file
+import 'react-date-range/dist/theme/default.css'; // theme css file
+import { DateRange  } from 'react-date-range';
+
 
 const Report_page = () => {
     const init = {time: "", parkingAreas: "", report: { id: 0 } };
@@ -13,7 +19,7 @@ const Report_page = () => {
     const handleInput = (event) => {
         setReport({ ...report,})
     }
-
+   
     const createReport = async () => {
         try {
             await axios.post (URL + "/report", {
@@ -26,17 +32,28 @@ const Report_page = () => {
         setStatusMessage(error.response.data.message);
     }
 }
-
+//Date picker
+const [state, setState] = useState([
+    {
+      startDate: new Date(),
+      endDate: null,
+      key: 'selection'
+    }
+  ]);
 
 return (
+
     <div className="center">
-        <h1>Create Report</h1>
         <p>{statusMessage}</p>
         <form onChange={handleInput}>
-            <input className="form-control addInput" id="time" placeholder="Enter time" type="text"></input>
-            <input className="form-control addInput" id="parkingAreas" placeholder="Enter parking area" type="text"></input>
-
+        <input className="form-control addInput" id="parkingAreas" placeholder="Enter parking area" type="text"></input>
         </form>
+<DateRange
+editableDateInputs={true}
+onChange={item => setState([item.selection])}
+moveRangeOnFirstSelection={false}
+ranges={state}
+/>
         <button onClick={createReport} className="btn btn-primary mt-3">Create</button>
     </div>
     )
