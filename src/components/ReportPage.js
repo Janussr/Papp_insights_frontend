@@ -25,21 +25,31 @@ const ReportPage = () => {
 
     const URL = apiUtils.getUrl()
 
+
     useEffect(() => {
         const getParkingArea = async () => {
           const response = await axios.get(URL + 'parkingareas');
           setParkingAreas(response.data.parkingareas);
-          console.log(response.data.parkingareas);
         };
         getParkingArea();
       }, [setParkingAreas]);
 
 
+
+      const elements = [parkingAreas];
+
+      const items = []
+    
+      for (const [index, value] of elements.entries()) {
+        items.push(<li key={value}>{value}</li>)
+      }
+    console.log(items)
+
       const SearchLocationBar = () => (
-        <Select options={parkingAreas} />
+        <Select options={items} />
       )
 
-
+    
 
     const handleInput = (event) => {
         setReport({ ...report,})
@@ -66,6 +76,9 @@ const [state, setState] = useState([
     }
   ]);
 
+
+
+
 return (
 
     
@@ -74,6 +87,7 @@ return (
         <form onChange={handleInput}>
         <SearchLocationBar/>
         </form>
+        
 <DateRange
 editableDateInputs={true}
 onChange={item => setState([item.selection])}
@@ -87,7 +101,3 @@ ranges={state}
 
 
 export default ReportPage
-<<<<<<< HEAD
-
-=======
->>>>>>> main
