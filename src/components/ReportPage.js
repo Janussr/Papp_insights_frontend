@@ -87,7 +87,3 @@ ranges={state}
 
 
 export default ReportPage
-<<<<<<< HEAD
-
-=======
->>>>>>> main
