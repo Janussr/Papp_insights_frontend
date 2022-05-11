@@ -79,22 +79,25 @@ const ReportPage = () => {
 
   return (
 
+    /* ændrede i DataRange hvordan den stod i format mere hvis den pludselig ikke virker*/
 
     <div className="center">
       <h2>Report</h2>
         <p>{statusMessage}</p>
-        <form onChange={handleInput}>
+        <form onChange={handleInput} className="onChange">
         <SearchLocationBar/>
         </form>
         
-<DateRange
-editableDateInputs={true}
-onChange={item => setState([item.selection])}
-moveRangeOnFirstSelection={false}
-ranges={state}
-/>
-        <button onClick={createReport} className="btn btn-primary mt-3">Create</button>
-    </div>
+  <DateRange 
+  editableDateInputs={true} 
+  onChange={item => setState([item.selection])}
+  moveRangeOnFirstSelection={false}
+  ranges={state}
+  />
+
+        <button onClick={createReport} className="btn-create">Create</button>
+        </div>
+    
   )
 }
 

@@ -34,7 +34,7 @@ ul.header li a:hover:not(.active) {
 }
 
 .active {
-  background-color: orangered;
+  background-color: #ed553b;
 }
 
 .logout {
@@ -80,7 +80,19 @@ ul.header li a:hover:not(.active) {
   justify-content: center;
   height: 90vh;
   align-items: center;
-  flex-direction: column;
-        
-  
+  flex-direction: column; 
+}
+
+.btn-create {
+  color: black;
+  background-color: orangered;
+}
+
+.data-input{
+  color: black;
+
+}
+
+.onChange {
+  color: #111;
 }
