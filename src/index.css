@@ -23,18 +23,18 @@ ul.header li {
 
 ul.header li a {
   display: block;
-  color: white;
+  color: black;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
 }
 
 ul.header li a:hover:not(.active) {
-  background-color: rgb(109, 18, 74);
+  background-color: orangered;
 }
 
 .active {
-  background-color: #4CAF50;
+  background-color: orangered;
 }
 
 .logout {
@@ -56,10 +56,9 @@ ul.header li a:hover:not(.active) {
   font-size: 16px;
 }
 
+/* HomePage*/
 
-/* ReportPage*/
-
-.center {
+.border {
   display: flex;
   z-index: 10;
   justify-content: center;
@@ -70,4 +69,18 @@ ul.header li a:hover:not(.active) {
   border: 20px;
   border-color: #ed553b;
   border-style: solid;
+
+}
+
+/* ReportPage*/
+
+.center {
+  display: flex;
+  z-index: 10;
+  justify-content: center;
+  height: 90vh;
+  align-items: center;
+  flex-direction: column;
+        
+  
 }

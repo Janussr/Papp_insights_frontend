@@ -83,6 +83,7 @@ return (
 
     
     <div className="center">
+      <h2>Report</h2>
         <p>{statusMessage}</p>
         <form onChange={handleInput}>
         <SearchLocationBar/>
@@ -100,8 +101,5 @@ ranges={state}
 }
 
 
-<<<<<<< HEAD
 export default ReportPage
-=======
-export default ReportPage
->>>>>>> main
+
