@@ -18,8 +18,8 @@ const Home = () => {
   }, [setReport, URL]);
 
   return (
-    <div>
-      <h1>Welcome</h1>
+    <div className="border">
+      <h1>Welcome to Papp</h1>
     </div>
   );
 };

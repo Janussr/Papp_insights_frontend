@@ -81,21 +81,23 @@ const ReportPage = () => {
 
 
     <div className="center">
-      <p>{statusMessage}</p>
-      <form onChange={handleInput}>
-        <SearchLocationBar />
-      </form>
-
-      <DateRange
-        editableDateInputs={true}
-        onChange={item => setState([item.selection])}
-        moveRangeOnFirstSelection={false}
-        ranges={state}
-      />
-      <button onClick={createReport} className="btn btn-primary mt-3">Create</button>
+      <h2>Report</h2>
+        <p>{statusMessage}</p>
+        <form onChange={handleInput}>
+        <SearchLocationBar/>
+        </form>
+        
+<DateRange
+editableDateInputs={true}
+onChange={item => setState([item.selection])}
+moveRangeOnFirstSelection={false}
+ranges={state}
+/>
+        <button onClick={createReport} className="btn btn-primary mt-3">Create</button>
     </div>
   )
 }
 
 
 export default ReportPage
+
