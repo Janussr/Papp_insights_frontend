@@ -96,3 +96,19 @@ ul.header li a:hover:not(.active) {
 .onChange {
   color: #111;
 }
+
+.search {
+  width: 250px;
+  column-rule-style: #ed553b;
+  text-align: center;
+}
+.reporth4 {
+  text-align: center;
+}
+
+.date {
+  width: 300px;
+  column-width: 300px;
+  text-align: center;
+  
+}

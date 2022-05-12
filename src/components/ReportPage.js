@@ -65,27 +65,38 @@ const ReportPage = () => {
 
     <div className="center">
       <p>{statusMessage}</p>
-      <form onChange={handleInput}>
-        <Select
+      <h2>Pick location</h2>
+      <br></br>
+      <form className="search" onChange={handleInput}>
+        <Select 
     isMulti
     name="parkingAreas"
     options={options}
     className="basic-multi-select"
     classNamePrefix="select"
   />
+      <br></br>
+      <br></br>
+      
+
+
       </form>
-
+      
       <button onClick={createReport} className="btn btn-primary mt-3">Create</button>
-
+      <br></br>
+      <br></br>
       <div className="centerAligned">
-        <h2>Edit Delivery Date</h2>
+        <h4>Edit Delivery Date</h4>
         <div className="orderSection">
-
+        <br></br>
+        <br></br>
+      <form className="date">
           <DatePicker
             dateFormat="yyyy/MM/dd"
             selected={startDate}
             onChange={(date) => setStartDate(date)}
           />
+      </form>
         </div>
       </div>
 
