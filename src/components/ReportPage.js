@@ -10,7 +10,9 @@ import { DateRange } from 'react-date-range';
 
 import React, { Component } from 'react'
 import Select from 'react-select'
-import AsyncSelect from 'react-select/async';
+
+import "react-datepicker/dist/react-datepicker.css";
+import DatePicker from "react-datepicker";
 
 
 
@@ -25,6 +27,10 @@ const ReportPage = () => {
 
   const URL = apiUtils.getUrl()
 
+  const [startDate, setStartDate] = useState(new Date());
+  const navigate = useNavigate()
+
+  console.log(startDate.getUTCFullYear(),  startDate.getUTCMonth()+1, startDate.getUTCDate())
 
   useEffect(() => {
     const getParkingArea = async () => {
@@ -35,8 +41,8 @@ const ReportPage = () => {
   }, [setParkingAreas]);
 
 
-//Part of the search location bar.
-//: TODO find proper place.
+  //Part of the search location bar.
+  //: TODO find proper place.
   const options = []
   for (var i = 0; i < parkingAreas.length; i++) {
     let currentobj = { value: parkingAreas[i], label: parkingAreas[i] }
@@ -77,23 +83,38 @@ const ReportPage = () => {
 
 
 
-  return (
 
+
+  return (
 
     <div className="center">
       <p>{statusMessage}</p>
       <form onChange={handleInput}>
-        <SearchLocationBar />
+        <Select
+    isMulti
+    name="parkingAreas"
+    options={options}
+    className="basic-multi-select"
+    classNamePrefix="select"
+  />
       </form>
 
-      <DateRange
-        editableDateInputs={true}
-        onChange={item => setState([item.selection])}
-        moveRangeOnFirstSelection={false}
-        ranges={state}
-      />
       <button onClick={createReport} className="btn btn-primary mt-3">Create</button>
+
+      <div className="centerAligned">
+        <h2>Edit Delivery Date</h2>
+        <div className="orderSection">
+
+          <DatePicker
+            dateFormat="yyyy/MM/dd"
+            selected={startDate}
+            onChange={(date) => setStartDate(date)}
+          />
+        </div>
+      </div>
+
     </div>
+
   )
 }
 
