@@ -6,16 +6,10 @@ import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
 import 'react-date-range/dist/styles.css'; // main css file
 import 'react-date-range/dist/theme/default.css'; // theme css file
-import { DateRange } from 'react-date-range';
-
 import React, { Component } from 'react'
 import Select from 'react-select'
-
 import "react-datepicker/dist/react-datepicker.css";
 import DatePicker from "react-datepicker";
-
-
-
 
 //npm install react-date-range might have to use this if datepicker doesnt work.
 
@@ -49,12 +43,6 @@ const ReportPage = () => {
     options.push(currentobj)
   }
 
-  const SearchLocationBar = () => (
-    <Select options={options} />
-  )
-
-
-
   const handleInput = (event) => {
     setReport({ ...report, })
   }
@@ -71,18 +59,6 @@ const ReportPage = () => {
       setStatusMessage(error.response.data.message);
     }
   }
-  //Date picker
-  const [state, setState] = useState([
-    {
-      startDate: new Date(),
-      endDate: null,
-      key: 'selection'
-    }
-  ]);
-
-
-
-
 
 
   return (
