@@ -10,16 +10,30 @@ import React, { Component } from 'react'
 import Select from 'react-select'
 import "react-datepicker/dist/react-datepicker.css";
 import DatePicker from "react-datepicker";
+import uuid from 'react-uuid'
 
 //npm install react-date-range might have to use this if datepicker doesnt work.
 
 const ReportPage = () => {
-  const init = { time: "", parkingAreas: "", report: { id: 0 } };
   const [report, setReport] = useState({});
   const [statusMessage, setStatusMessage] = useState("");
   const [parkingAreas, setParkingAreas] = useState([]);
-
+  const [selectedAreas, setSelectedAreas] = useState([]);
   const URL = apiUtils.getUrl()
+
+  console.log(selectedAreas);
+
+  const handleInput = (event) => {
+    setReport({ ...report, [event.target.id]: event.target.value })
+  }
+
+const handleChange = (e) => {
+
+    console.log("Fruit Selected!!");
+
+    selectedAreas.push(e.target.value);
+  }
+  
 
   const [startDate, setStartDate] = useState(new Date());
   const navigate = useNavigate()
@@ -43,17 +57,24 @@ const ReportPage = () => {
     options.push(currentobj)
   }
 
-  const handleInput = (event) => {
-    setReport({ ...report, })
+
+  const addParkingArea = () => {
+    selectedAreas.push({})
+    setSelectedAreas(selectedAreas)
   }
 
   const createReport = async () => {
     try {
       await axios.post(URL + "/report", {
-        time: report.time,
-        parkingAreas: report.parkingAreas,
-        report: { id: report.id }
-      })
+        id: uuid,
+        report_name: report.report_name
+        //parking_areas: 
+        [
+          "string"
+        ],
+        "date": "string"
+      }
+      )
       setStatusMessage('Report created successfully')
     } catch (error) {
       setStatusMessage(error.response.data.message);
@@ -67,8 +88,8 @@ const ReportPage = () => {
       <p>{statusMessage}</p>
       <h2>Pick location</h2>
       <br></br>
-      <form className="search" onChange={handleInput}>
-        <Select 
+      <form className="search" onChange={handleInput} >
+        <Select onChange={handleChange}
     isMulti
     name="parkingAreas"
     options={options}
@@ -78,15 +99,12 @@ const ReportPage = () => {
       <br></br>
       <br></br>
       
-
-
       </form>
       
       <button onClick={createReport} className="btn btn-primary mt-3">Create</button>
       <br></br>
       <br></br>
       <div className="centerAligned">
-        <h4>Edit Delivery Date</h4>
         <div className="orderSection">
         <br></br>
         <br></br>
