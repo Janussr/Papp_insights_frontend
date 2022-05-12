@@ -84,12 +84,10 @@ const ReportPage = () => {
 
 
 
-    /* ændrede i DataRange hvordan den stod i format mere hvis den pludselig ikke virker*/
 
   return (
 
     <div className="center">
-      <h2>Report</h2>
       <p>{statusMessage}</p>
       <form onChange={handleInput}>
         <Select
@@ -117,11 +115,8 @@ const ReportPage = () => {
 
     </div>
 
-
-    
   )
 }
 
 
 export default ReportPage
-
