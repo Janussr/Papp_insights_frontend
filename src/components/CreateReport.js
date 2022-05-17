@@ -36,8 +36,6 @@ const handleChange = (e) => {
   
 
   const [startDate, setStartDate] = useState(new Date());
-  const navigate = useNavigate()
-
   console.log(startDate.getUTCFullYear(),  startDate.getUTCMonth()+1, startDate.getUTCDate())
 
   useEffect(() => {
@@ -94,27 +92,22 @@ const handleChange = (e) => {
     name="parkingAreas"
     options={options}
     className="basic-multi-select"
-    classNamePrefix="select"
-  />
-      <br></br>
-      <br></br>
-      
-      </form>
-      
-      <button onClick={createReport} className="btn btn-primary mt-3">Create</button>
-      <br></br>
-      <br></br>
+    classNamePrefix="select"/>   
+    </form>
+
       <div className="centerAligned">
         <div className="orderSection">
-        <br></br>
-        <br></br>
       <form className="date">
           <DatePicker
             dateFormat="yyyy/MM/dd"
             selected={startDate}
-            onChange={(date) => setStartDate(date)}
-          />
+            onChange={(date) => setStartDate(date)} />
+
+      <button onClick={createReport} className="btn btn-primary mt-3">Create</button>
+
       </form>
+
+
         </div>
       </div>
 

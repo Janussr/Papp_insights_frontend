@@ -101,6 +101,7 @@ ul.header li a:hover:not(.active) {
   width: 250px;
   column-rule-style: #ed553b;
   text-align: center;
+  margin-bottom: 25px;
 }
 .reporth4 {
   text-align: center;
@@ -110,5 +111,6 @@ ul.header li a:hover:not(.active) {
   width: 300px;
   column-width: 300px;
   text-align: center;
+  margin-top: 25px;
   
 }
