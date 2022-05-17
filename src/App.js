@@ -5,6 +5,7 @@ import Home from './components/Home';
 import NoMatch from './components/NoMatch';
 import CreateReport from './components/CreateReport';
 import Reports from './components/Reports';
+import MyReport from './components/MyReport';
 
 function App() {
 
@@ -14,8 +15,9 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='*' element={<NoMatch />} />
-        <Route path='createreport' element={<CreateReport/>} />
-        <Route path='report/:id' element={<Reports/>}/>
+        <Route path='/reports' element={<Reports />} />
+        <Route path='/createreport' element={<CreateReport />} />
+        <Route path='report/:id' element={<MyReport />} />
       </Routes>
     </div >
   );

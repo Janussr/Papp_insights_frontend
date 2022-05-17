@@ -1,46 +1,46 @@
-import { useState, useEffect } from "react"
-import axios from "axios"
-import { useParams } from "react-router-dom"
-import apiUtils from "../utils/apiUtils"
-import { PieChart } from 'react-minimal-pie-chart';
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import apiUtils from "../utils/apiUtils";
+import axios from "axios";
 
-//npm install react-minimal-pie-chart
+const URL = apiUtils.getUrl()
+
 const Reports = () => {
-
-    const [report, setReport] = useState({});
-    const [areas, setAreas] = useState([]);
-
-    const id = parseInt(useParams().id)
+    const [reports, setReports] = useState([]);
 
     useEffect(() => {
-        const getReport = async () => {
-            const response = await axios.get(URL + '/report/' + id)
-            setReport(response.data);
-            setAreas(response.data.parking_areas)
+        const getReports = async () => {
+            const response = await axios.get(URL + '/reports')
+            setReports(response.data);
         }
-        getReport()
-    }, [id]);
+        getReports()
+    }, []);
+
+    const navigate = useNavigate();
+
+    const toCreate = () => {
+        navigate('/createreport')
+    }
+
+    const to = () => {
+        navigate('/createreport')
+    }
 
     return (
-
         <div>
-            <h1 className="centerContent">{report.report_name}</h1>
-            <div className="container">
-                <div className="row">
-                    {areas.map((area) =>
-                        <div
-                            className="col-sm centerContent" key={area.name} >
-                            <h3>{area.name}</h3>
-                            <PieChart
-                                data={[
-                                    { title: 'Belægningsgrad', value: area.parking_category.value, color: '#3d8c40', label: area.parking_category.value },
-                                    { value: 100 - area.parking_category.value, color: '#C13C37' },
-                                ]}
-                            />
-                        </div>)}
-                </div>
+            <h1 className="centerContent">Reports</h1>
+            <div className="centerContent container">
+                <button onClick={toCreate} className="btn btn-primary">Create Report</button>
             </div>
-        </div >
+            <ul>{reports.map((report) =>
+                <li
+                    className="reportsList" key={report.id}>
+                    {report.name}
+                    <NavLink to={`/report/${report.id}`}><button className="btn btn-primary">View</button></NavLink>
+                </li>)}
+            </ul>
+        </div>
     )
 }
 
