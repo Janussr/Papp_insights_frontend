@@ -18,47 +18,39 @@ const CreateReport = () => {
   const [report, setReport] = useState({});
   const [statusMessage, setStatusMessage] = useState("");
   const [parkingAreas, setParkingAreas] = useState([]);
-  const [selectedAreas, setSelectedAreas] = useState([]);
+  const [selectedParkingAreas, setSelectedParkingAreas] = useState([]);
   const URL = apiUtils.getUrl()
 
-  console.log(selectedAreas);
-
-  const handleInput = (event) => {
-    setReport({ ...report, [event.target.id]: event.target.value })
-  }
-
-const handleChange = (e) => {
-
-    console.log("Fruit Selected!!");
-
-    selectedAreas.push(e.target.value);
-  }
-  
-
   const [startDate, setStartDate] = useState(new Date());
-  console.log(startDate.getUTCFullYear(),  startDate.getUTCMonth()+1, startDate.getUTCDate())
-
-  useEffect(() => {
-    const getParkingArea = async () => {
-      const response = await axios.get(URL + 'parkingareas');
-      setParkingAreas(response.data.parkingareas);
-    };
-    getParkingArea();
-  }, [setParkingAreas]);
+  console.log(startDate.getUTCFullYear(), startDate.getUTCMonth() + 1, startDate.getUTCDate())
 
 
-  //Part of the search location bar.
-  //: TODO find proper place.
+  const handleChange = (e) => {
+    const selected = e.map(obj => {
+        return obj.value
+    })
+    setSelectedParkingAreas(selected)
+}
+
+  //Goes through every List in order to show location on the website
   const options = []
   for (var i = 0; i < parkingAreas.length; i++) {
     let currentobj = { value: parkingAreas[i], label: parkingAreas[i] }
     options.push(currentobj)
   }
 
+//Get parking areas
+useEffect(() => {
+  const getParkingArea = async () => {
+    const response = await axios.get(URL + 'parkingareas');
+    setParkingAreas(response.data.parkingareas);
+  };
+  getParkingArea();
+}, [setParkingAreas]);
 
   const addParkingArea = () => {
-    selectedAreas.push({})
-    setSelectedAreas(selectedAreas)
+    selectedParkingAreas.push({})
+    setSelectedParkingAreas(selectedParkingAreas)
   }
 
   const createReport = async () => {
@@ -81,38 +73,32 @@ const handleChange = (e) => {
 
 
   return (
-
     <div className="center">
+
       <p>{statusMessage}</p>
       <h2>Pick location</h2>
-      <br></br>
-      <form className="search" onChange={handleInput} >
-        <Select onChange={handleChange}
-    isMulti
-    name="parkingAreas"
-    options={options}
-    className="basic-multi-select"
-    classNamePrefix="select"/>   
-    </form>
 
-      <div className="centerAligned">
-        <div className="orderSection">
+      <div className="centerContent container">
+      <Select
+          onChange={handleChange}
+          isMulti
+          name="parkingAreas"
+          options={options}
+          className="basic-multi-select"
+          classNamePrefix="select"
+      />
+  </div>
+
       <form className="date">
-          <DatePicker
-            dateFormat="yyyy/MM/dd"
-            selected={startDate}
-            onChange={(date) => setStartDate(date)} />
+        <DatePicker
+          dateFormat="yyyy/MM/dd"
+          selected={startDate}
+          onChange={(date) => setStartDate(date)} />
 
-      <button onClick={createReport} className="btn btn-primary mt-3">Create</button>
-
+        <button onClick={createReport} className="btn btn-primary mt-3">Create</button>
       </form>
 
-
-        </div>
-      </div>
-
     </div>
-
   )
 }
 
