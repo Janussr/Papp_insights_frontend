@@ -7,7 +7,7 @@ const Header = () => {
             <ul className='header'>
                 <li><NavLink activeclassname='active' to='/'>Home</NavLink></li>
 
-                <li> <NavLink activeclassname='active' to='/create-report'>Create Report</NavLink></li>
+                <li> <NavLink activeclassname='active' to='/createReport'>Create Report</NavLink></li>
             </ul>
         </div >
         

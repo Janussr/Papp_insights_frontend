@@ -14,7 +14,7 @@ import uuid from 'react-uuid'
 
 //npm install react-date-range might have to use this if datepicker doesnt work.
 
-const ReportPage = () => {
+const CreateReport = () => {
   const [report, setReport] = useState({});
   const [statusMessage, setStatusMessage] = useState("");
   const [parkingAreas, setParkingAreas] = useState([]);
@@ -124,4 +124,4 @@ const handleChange = (e) => {
 }
 
 
-export default ReportPage
+export default CreateReport

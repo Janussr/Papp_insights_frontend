@@ -3,8 +3,9 @@ import { Routes, Route } from 'react-router-dom'
 import Header from './components/Header';
 import Home from './components/Home';
 import NoMatch from './components/NoMatch';
-import ReportPage from './components/ReportPage';
+import CreateReport from './components/CreateReport';
 import Tester from './components/Tester';
+import Reports from './components/Reports';
 
 function App() {
 
@@ -14,8 +15,9 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='*' element={<NoMatch />} />
-        <Route path='create-report' element={<ReportPage/>} />
+        <Route path='createReport' element={<CreateReport/>} />
         <Route path='tester' element={<Tester/>} />
+        <Route path='reports' element={<Reports/>} />
       </Routes>
     </div >
   );
