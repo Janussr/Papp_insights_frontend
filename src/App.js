@@ -17,7 +17,7 @@ function App() {
         <Route path='*' element={<NoMatch />} />
         <Route path='createReport' element={<CreateReport/>} />
         <Route path='tester' element={<Tester/>} />
-        <Route path='reports' element={<Reports/>} />
+        <Route path='reports' element={<Reports/>}/>
       </Routes>
     </div >
   );
