@@ -27,19 +27,19 @@ const Reports = () => {
     return (
         <div className="centerContent">
             <Container>
-                <h1 className="centerContent">Reports</h1>
+                <h1 className="centerContent">Dine Rapporter</h1>
                 <Row>
 
                     {reports.map((report) =>
                         <Col sm="4" key={report.id} className="centerContent reportSection">
                             <h2>{report.name}</h2>
                             <h4>{report.date}</h4>
-                            <NavLink to={`/report/${report.id}`}><button className="btn btn-secondary">View</button></NavLink>
+                            <NavLink to={`/report/${report.id}`}><button className="btn btn-secondary">Åben</button></NavLink>
                         </Col>
                     )}
                 </Row>
                 <div>
-                    <button onClick={toCreate} className="btn btn-primary">Create a Report</button>
+                    <button onClick={toCreate} className="btn btn-primary">Lav en Rapport</button>
                 </div>
             </Container>
         </div>

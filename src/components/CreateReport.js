@@ -14,7 +14,7 @@ const CreateReport = () => {
   const [report, setReport] = useState({ report_name: "" });
   const [parkingAreas, setParkingAreas] = useState([]);
   const [selectedParkingAreas, setSelectedParkingAreas] = useState([]);
-  const [startDate, setStartDate] = useState(new Date());
+  const [startDate, setStartDate] = useState(new Date('January 1, 2022'));
 
   const navigate = useNavigate()
 
@@ -22,8 +22,9 @@ const CreateReport = () => {
   const month = startDate.getUTCMonth() + 1
   const monthToString = '0' + month.toString()
   const slicedMonth = monthToString.slice(-2)
-  const date = '0' + startDate.getUTCDate().toString()
-  const slicedDate = date.slice(-2)
+  const date = startDate.getUTCDate() + 1
+  const dateToString = '0' + date.toString()
+  const slicedDate = dateToString.slice(-2)
   const selectedDate = year.toString() + "-" + slicedMonth + "-" + slicedDate
 
   const handleInput = (event) => {
@@ -67,13 +68,13 @@ const CreateReport = () => {
 
   return (
     <div className="center">
-      <h2>Create report</h2>
+      <h2>Udarbejd Rapport</h2>
       <Container>
         <Row>
           <Col></Col>
           <Col lg="6">
             <form className="SelectInput" onChange={handleInput}>
-              <input className="inputField form-control" id="report_name" type="text" placeholder="Report name"></input>
+              <input className="inputField form-control" id="report_name" type="text" placeholder="Navnet på din rapport"></input>
             </form>
 
             <Select
@@ -82,7 +83,10 @@ const CreateReport = () => {
               name="parkingAreas"
               options={options}
               className="basic-multi-select inputField"
-              classNamePrefix="select" />
+              classNamePrefix="select"
+              placeholder="Vælg Område"
+            />
+
 
             <DatePicker
               className="inputField form-control"
@@ -90,7 +94,7 @@ const CreateReport = () => {
               selected={startDate}
               onChange={(date) => setStartDate(date)} />
             <div className="centerContent">
-              <button onClick={createReport} className="btn btn-primary mt-3">Create</button>
+              <button onClick={createReport} className="btn btn-primary mt-3">Udfør</button>
             </div>
           </Col>
           <Col></Col>

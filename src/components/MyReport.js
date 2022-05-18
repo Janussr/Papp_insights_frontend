@@ -37,7 +37,7 @@ const MyReport = () => {
         <div>
             <h1 className="centerContent">{report.report_name}</h1>
             {!loading ? <h2 className="centerContent">{report.date}</h2> : (<h1></h1>)}
-            {loading ? <h2 className="centerContent">Processing Report...</h2> : (<h1></h1>)}
+            {loading ? <h2 className="centerContent">Udarbejder Rapport...</h2> : (<h1></h1>)}
             <ClipLoader css={override} color='FFFFFF' loading={loading} size={150} />
             <Container>
                 <Row>
@@ -50,7 +50,7 @@ const MyReport = () => {
                                 data={[
                                     { title: 'Belægningsgrad', value: area.parking_category.value, color: '#0288d1', label: area.parking_category.value },
                                     { value: 100 - area.parking_category.value, color: '#FFFFFF' },
-                                ]} />
+                                ]} x$ />
                         </Col>)}
                 </Row>
             </Container>
