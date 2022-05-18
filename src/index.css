@@ -5,6 +5,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.page {
+  background-color: #f6f8fe;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
@@ -15,6 +19,7 @@ ul.header {
   padding: 0;
   overflow: hidden;
   background-color: #ed553b;
+  background: linear-gradient(90deg, rgba(237, 85, 59, 1) 0%, rgb(228, 113, 113) 0%, rgb(219, 83, 70) 17%);
   ;
 }
 
@@ -31,11 +36,11 @@ ul.header li a {
 }
 
 ul.header li a:hover:not(.active) {
-  background-color: orangered;
+  background-color: rgb(237, 71, 42);
 }
 
 .active {
-  background-color: #ed553b;
+  background-color: rgb(237, 71, 42);
 }
 
 .logout {
@@ -131,6 +136,7 @@ ul {
 .pieChart {
   width: 25%;
   height: 25%;
+  border: solid;
 }
 
 .spinner {

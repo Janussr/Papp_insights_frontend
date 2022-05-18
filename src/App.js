@@ -6,12 +6,16 @@ import NoMatch from './components/NoMatch';
 import CreateReport from './components/CreateReport';
 import Reports from './components/Reports';
 import MyReport from './components/MyReport';
+import { Helmet } from "react-helmet";
 
 function App() {
 
   return (
-    <div>
+    <div className="page">
       <Header />
+      <Helmet>
+        <style>{"body { background-color: #f6f8fe; }"}</style>
+      </Helmet>
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='*' element={<NoMatch />} />

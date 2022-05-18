@@ -35,6 +35,7 @@ const MyReport = () => {
     return (
         <div>
             <h1 className="centerContent">{report.report_name}</h1>
+            {!loading ? <h2 className="centerContent">{report.date}</h2> : (<h1></h1>)}
             {loading ? <h2 className="centerContent">Processing Report...</h2> : (<h1></h1>)}
             <ClipLoader css={override} color='FFFFFF' loading={loading} size={150} />
             <div className="container">
@@ -43,11 +44,13 @@ const MyReport = () => {
                         <div
                             className="col-sm centerContent" key={area.name} >
                             <h3>{area.name}</h3>
+                            <h4>Belægningsgrad: {Math.round(area.parking_category.value) + '%'}</h4>
                             <PieChart
                                 data={[
-                                    { title: 'Belægningsgrad', value: area.parking_category.value, color: '#3d8c40', label: area.parking_category.value },
-                                    { value: 100 - area.parking_category.value, color: '#C13C37' },
+                                    { title: 'Belægningsgrad', value: area.parking_category.value, color: '#0288d1', label: area.parking_category.value },
+                                    { value: 100 - area.parking_category.value, color: '#FFFFFF' },
                                 ]}
+                            //viewBoxSize={[150, 150]}
                             />
                         </div>)}
                 </div>
