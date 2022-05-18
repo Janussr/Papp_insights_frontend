@@ -50,7 +50,6 @@ const MyReport = () => {
                                     { title: 'Belægningsgrad', value: area.parking_category.value, color: '#0288d1', label: area.parking_category.value },
                                     { value: 100 - area.parking_category.value, color: '#FFFFFF' },
                                 ]}
-                            //viewBoxSize={[150, 150]}
                             />
                         </div>)}
                 </div>

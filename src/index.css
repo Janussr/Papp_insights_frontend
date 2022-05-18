@@ -43,19 +43,6 @@ ul.header li a:hover:not(.active) {
   background-color: rgb(237, 71, 42);
 }
 
-.logout {
-  float: right;
-  border: none;
-  background: none;
-  cursor: pointer;
-  padding: 14px 16px;
-  color: white;
-}
-
-.logout:hover {
-  background-color: #111;
-}
-
 .errorMessage {
   color: red;
   font-weight: bold;
@@ -64,7 +51,7 @@ ul.header li a:hover:not(.active) {
 
 /* HomePage*/
 
-.border {
+.home {
   display: flex;
   z-index: 10;
   justify-content: center;
@@ -72,10 +59,6 @@ ul.header li a:hover:not(.active) {
   align-items: center;
   flex-direction: column;
   gap: 20px;
-  border: 20px;
-  border-color: #ed553b;
-  border-style: solid;
-
 }
 
 /* ReportPage*/

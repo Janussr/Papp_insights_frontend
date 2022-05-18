@@ -29,13 +29,16 @@ const Reports = () => {
             <div className="centerContent container">
                 <button onClick={toCreate} className="btn btn-primary">Create Report</button>
             </div>
-            <ul>{reports.map((report) =>
-                <li
-                    className="reportsList" key={report.id}>
-                    {report.name}
-                    <NavLink to={`/report/${report.id}`}><button className="btn btn-primary">View</button></NavLink>
-                </li>)}
-            </ul>
+            <div className="row">
+                {reports.map((report) =>
+                    <div key={report.id} className="col-sm centerContent">
+                        <h2>{report.name}</h2>
+                        <NavLink to={`/report/${report.id}`}><button className="btn btn-primary">View</button></NavLink>
+                    </div>
+                )}
+
+
+            </div>
         </div>
     )
 }
