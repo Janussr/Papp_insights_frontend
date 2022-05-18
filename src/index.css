@@ -128,3 +128,8 @@ ul {
   border-color: red;
   width: 100px
 }
+
+.inputField{
+  margin-bottom: 25px;
+  width: 200px;
+}
