@@ -11,7 +11,7 @@ const Reports = () => {
 
     useEffect(() => {
         const getReports = async () => {
-            const response = await axios.get(URL + '/reports')
+            const response = await axios.get(URL + 'reports')
             setReports(response.data);
         }
         getReports()

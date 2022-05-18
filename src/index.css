@@ -14,7 +14,8 @@ ul.header {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #ed553b;;
+  background-color: #ed553b;
+  ;
 }
 
 ul.header li {
@@ -65,7 +66,7 @@ ul.header li a:hover:not(.active) {
   height: 90vh;
   align-items: center;
   flex-direction: column;
-  gap:20px;
+  gap: 20px;
   border: 20px;
   border-color: #ed553b;
   border-style: solid;
@@ -80,7 +81,7 @@ ul.header li a:hover:not(.active) {
   justify-content: center;
   height: 90vh;
   align-items: center;
-  flex-direction: column; 
+  flex-direction: column;
 }
 
 .btn-create {
@@ -88,7 +89,7 @@ ul.header li a:hover:not(.active) {
   background-color: orangered;
 }
 
-.data-input{
+.data-input {
   color: black;
 
 }
@@ -103,6 +104,7 @@ ul.header li a:hover:not(.active) {
   text-align: center;
   margin-bottom: 25px;
 }
+
 .reporth4 {
   text-align: center;
 }
@@ -112,5 +114,28 @@ ul.header li a:hover:not(.active) {
   column-width: 300px;
   text-align: center;
   margin-top: 25px;
-  
+}
+
+.centerContent {
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.reportsList {
+  margin-left: 80px;
+}
+
+.pieChart {
+  width: 25%;
+  height: 25%;
+}
+
+.spinner {
+  display: block;
+  margin: 0 auto;
+  border-color: red;
+  width: 100px
 }
