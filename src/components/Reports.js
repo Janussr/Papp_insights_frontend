@@ -23,10 +23,6 @@ const Reports = () => {
         navigate('/createreport')
     }
 
-    const to = () => {
-        navigate('/createreport')
-    }
-
     return (
         <div>
             <h1 className="centerContent">Reports</h1>
