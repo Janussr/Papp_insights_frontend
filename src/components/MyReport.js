@@ -19,7 +19,7 @@ const MyReport = () => {
     const [areas, setAreas] = useState([]);
     let [loading, setLoading] = useState(true);
 
-    const id = parseInt(useParams().id)
+    const id = useParams().id
 
     useEffect(() => {
         const getReport = async () => {

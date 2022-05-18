@@ -10,7 +10,6 @@ const URL = apiUtils.getUrl()
 
 const CreateReport = () => {
   const [report, setReport] = useState({ report_name: "" });
-  const [statusMessage, setStatusMessage] = useState("");
   const [parkingAreas, setParkingAreas] = useState([]);
   const [selectedParkingAreas, setSelectedParkingAreas] = useState([]);
   const [startDate, setStartDate] = useState(new Date());
@@ -18,8 +17,13 @@ const CreateReport = () => {
   // startDate.getUTCFullYear(), startDate.getUTCMonth() + 1, startDate.getUTCDate()
   const year = startDate.getUTCFullYear()
   const month = startDate.getUTCMonth() + 1
-  const date = startDate.getUTCDate()
-  const selectedDate = year.toString() + "-" + month.toString() + "-" + date.toString()
+  const monthToString = '0' + month.toString()
+  const slicedMonth = monthToString.slice(-2)
+  const date = '0' + startDate.getUTCDate().toString()
+  const slicedDate = date.slice(-2)
+  const selectedDate = year.toString() + "-" + slicedMonth + "-" + slicedDate
+
+  console.log(selectedDate);
 
   const handleInput = (event) => {
     setReport({ ...report, [event.target.id]: event.target.value })
@@ -51,31 +55,24 @@ const CreateReport = () => {
 
 
   const createReport = async () => {
-    try {
-      await axios.post(URL + "report", {
-        id: uuid(),
-        report_name: report.report_name,
-        parking_areas: selectedParkingAreas,
-        date: selectedDate
-      }
-      )
-      setStatusMessage('Report created successfully')
-    } catch (error) {
-      setStatusMessage(error.response.data.message);
+    await axios.post(URL + "report", {
+      id: uuid(),
+      report_name: report.report_name,
+      parking_areas: selectedParkingAreas,
+      date: selectedDate
     }
+    )
   }
 
   return (
     <div className="center">
 
-      <p>{statusMessage}</p>
       <h2>Create report</h2>
-
 
       <div className="centerContent container">
 
         <form className="SelectInput" onChange={handleInput}>
-          <input className="inputField" id="report_name" type="text" placeholder="name the report"></input>
+          <input className="inputField" id="report_name" type="text" placeholder="Report name"></input>
         </form>
 
         <Select
