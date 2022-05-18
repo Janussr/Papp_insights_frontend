@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import apiUtils from "../utils/apiUtils";
 import axios from "axios";
+import { Container, Row, Col } from 'react-bootstrap';
 
 const URL = apiUtils.getUrl()
 
@@ -24,21 +25,23 @@ const Reports = () => {
     }
 
     return (
-        <div>
-            <h1 className="centerContent">Reports</h1>
-            <div className="centerContent container">
-                <button onClick={toCreate} className="btn btn-primary">Create Report</button>
-            </div>
-            <div className="row">
-                {reports.map((report) =>
-                    <div key={report.id} className="col-sm centerContent">
-                        <h2>{report.name}</h2>
-                        <NavLink to={`/report/${report.id}`}><button className="btn btn-primary">View</button></NavLink>
-                    </div>
-                )}
+        <div className="centerContent">
+            <Container>
+                <h1 className="centerContent">Reports</h1>
+                <Row>
 
-
-            </div>
+                    {reports.map((report) =>
+                        <Col sm="4" key={report.id} className="centerContent reportSection">
+                            <h2>{report.name}</h2>
+                            <h4>{report.date}</h4>
+                            <NavLink to={`/report/${report.id}`}><button className="btn btn-secondary">View</button></NavLink>
+                        </Col>
+                    )}
+                </Row>
+                <div>
+                    <button onClick={toCreate} className="btn btn-primary">Create a Report</button>
+                </div>
+            </Container>
         </div>
     )
 }

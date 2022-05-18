@@ -129,7 +129,10 @@ ul {
   width: 100px
 }
 
-.inputField{
+.inputField {
   margin-bottom: 25px;
-  width: 200px;
+}
+
+.reportSection {
+  margin-bottom: 50px;
 }

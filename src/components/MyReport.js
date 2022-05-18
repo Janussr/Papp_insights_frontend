@@ -5,6 +5,7 @@ import apiUtils from "../utils/apiUtils"
 import { css } from "@emotion/react";
 import { PieChart } from 'react-minimal-pie-chart';
 import { ClipLoader } from "react-spinners";
+import { Container, Row, Col } from 'react-bootstrap';
 
 const URL = apiUtils.getUrl()
 
@@ -17,7 +18,7 @@ const override = css`
 const MyReport = () => {
     const [report, setReport] = useState({});
     const [areas, setAreas] = useState([]);
-    let [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(true);
 
     const id = useParams().id
 
@@ -38,22 +39,21 @@ const MyReport = () => {
             {!loading ? <h2 className="centerContent">{report.date}</h2> : (<h1></h1>)}
             {loading ? <h2 className="centerContent">Processing Report...</h2> : (<h1></h1>)}
             <ClipLoader css={override} color='FFFFFF' loading={loading} size={150} />
-            <div className="container">
-                <div className="row">
+            <Container>
+                <Row>
                     {areas.map((area) =>
-                        <div
-                            className="col-sm centerContent" key={area.name} >
+                        <Col
+                            className="centerContent" key={area.name} >
                             <h3>{area.name}</h3>
                             <h4>Belægningsgrad: {Math.round(area.parking_category.value) + '%'}</h4>
                             <PieChart
                                 data={[
                                     { title: 'Belægningsgrad', value: area.parking_category.value, color: '#0288d1', label: area.parking_category.value },
                                     { value: 100 - area.parking_category.value, color: '#FFFFFF' },
-                                ]}
-                            />
-                        </div>)}
-                </div>
-            </div>
+                                ]} />
+                        </Col>)}
+                </Row>
+            </Container>
         </div >
     )
 }
