@@ -14,7 +14,6 @@ const CreateReport = () => {
   const [selectedParkingAreas, setSelectedParkingAreas] = useState([]);
   const [startDate, setStartDate] = useState(new Date());
 
-  // startDate.getUTCFullYear(), startDate.getUTCMonth() + 1, startDate.getUTCDate()
   const year = startDate.getUTCFullYear()
   const month = startDate.getUTCMonth() + 1
   const monthToString = '0' + month.toString()
