@@ -9,13 +9,21 @@ import { v1 as uuid } from "uuid";
 const URL = apiUtils.getUrl()
 
 const CreateReport = () => {
-  const [report, setReport] = useState({});
+  const [report, setReport] = useState({ report_name: "" });
   const [statusMessage, setStatusMessage] = useState("");
   const [parkingAreas, setParkingAreas] = useState([]);
   const [selectedParkingAreas, setSelectedParkingAreas] = useState([]);
-
   const [startDate, setStartDate] = useState(new Date());
-  console.log(startDate.getUTCFullYear(), startDate.getUTCMonth() + 1, startDate.getUTCDate())
+
+  // startDate.getUTCFullYear(), startDate.getUTCMonth() + 1, startDate.getUTCDate()
+  const year = startDate.getUTCFullYear()
+  const month = startDate.getUTCMonth() + 1
+  const date = startDate.getUTCDate()
+  const selectedDate = year.toString() + "-" + month.toString() + "-" + date.toString()
+
+  const handleInput = (event) => {
+    setReport({ ...report, [event.target.id]: event.target.value })
+  }
 
 
   const handleChange = (e) => {
@@ -41,21 +49,14 @@ const CreateReport = () => {
     getParkingArea();
   }, [setParkingAreas]);
 
-  const addParkingArea = () => {
-    selectedParkingAreas.push({})
-    setSelectedParkingAreas(selectedParkingAreas)
-  }
 
   const createReport = async () => {
     try {
-      await axios.post(URL + "/report", {
-        id: uuid,
-        report_name: report.report_name
-        //parking_areas: 
-        [
-          "string"
-        ],
-        "date": "string"
+      await axios.post(URL + "report", {
+        id: uuid(),
+        report_name: report.report_name,
+        parking_areas: selectedParkingAreas,
+        date: selectedDate
       }
       )
       setStatusMessage('Report created successfully')
@@ -64,32 +65,35 @@ const CreateReport = () => {
     }
   }
 
-
   return (
     <div className="center">
 
       <p>{statusMessage}</p>
-      <h2>Pick location</h2>
+      <h2>Create report</h2>
+
 
       <div className="centerContent container">
+
+        <form className="SelectInput" onChange={handleInput}>
+          <input className="inputField" id="report_name" type="text" placeholder="name the report"></input>
+        </form>
+
         <Select
           onChange={handleChange}
           isMulti
           name="parkingAreas"
           options={options}
           className="basic-multi-select"
-          classNamePrefix="select"
-        />
-      </div>
+          classNamePrefix="select" />
 
-      <form className="date">
+        <br></br>
         <DatePicker
           dateFormat="yyyy/MM/dd"
           selected={startDate}
           onChange={(date) => setStartDate(date)} />
+      </div>
+      <button onClick={createReport} className="btn btn-primary mt-3">Create</button>
 
-        <button onClick={createReport} className="btn btn-primary mt-3">Create</button>
-      </form>
 
     </div>
   )
