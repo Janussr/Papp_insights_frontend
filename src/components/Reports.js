@@ -39,7 +39,7 @@ const Reports = () => {
                     )}
                 </Row>
                 <div>
-                    <button onClick={toCreate} className="btn btn-primary">Lav en Rapport</button>
+                    <button onClick={toCreate} className="createButton btn btn-primary">Lav en Rapport</button>
                 </div>
             </Container>
         </div>
