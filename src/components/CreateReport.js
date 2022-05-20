@@ -71,33 +71,29 @@ const CreateReport = () => {
       <h2>Udarbejd Rapport</h2>
       <Container>
         <Row>
-          <Col></Col>
-          <Col lg="6">
-            <form className="SelectInput" onChange={handleInput}>
-              <input className="inputField form-control" id="report_name" type="text" placeholder="Navnet på din rapport"></input>
-            </form>
+          <form className="SelectInput" onChange={handleInput}>
+            <input className="inputField form-control" id="report_name" type="text" placeholder="Navnet på din rapport"></input>
+          </form>
 
-            <Select
-              onChange={handleChange}
-              isMulti
-              name="parkingAreas"
-              options={options}
-              className="basic-multi-select inputField"
-              classNamePrefix="select"
-              placeholder="Vælg Område"
-            />
+          <Select
+            onChange={handleChange}
+            isMulti
+            name="parkingAreas"
+            options={options}
+            className="basic-multi-select inputField"
+            classNamePrefix="select"
+            placeholder="Vælg Område"
+          />
 
 
-            <DatePicker
-              className="inputField form-control"
-              dateFormat="yyyy/MM/dd"
-              selected={startDate}
-              onChange={(date) => setStartDate(date)} />
-            <div className="centerContent">
-              <button onClick={createReport} className="btn btn-primary mt-3">Udfør</button>
-            </div>
-          </Col>
-          <Col></Col>
+          <DatePicker
+            className="inputField form-control"
+            dateFormat="yyyy/MM/dd"
+            selected={startDate}
+            onChange={(date) => setStartDate(date)} />
+          <div className="centerContent">
+            <button onClick={createReport} className="btn btn-primary mt-3">Udfør</button>
+          </div>
         </Row>
       </Container >
 
