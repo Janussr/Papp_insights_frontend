@@ -21,18 +21,26 @@ html {
   flex-basis: 200px;
 }
 
+.TopBar {
+  position: relative;
+  height: 60px;
+  background: #343434;
+  z-index: 1;
+  top: 0;
+}
+
 .NavBar {
   position: fixed;
   width: 200px;
   background-color: #f6f8fe;
-  top: 0;
+  top: 0px;
   left: 0;
   bottom: 0;
 }
 
 .NavBarContent {
   padding-left: 10px;
-  padding-top: 40px;
+  padding-top: 60px;
 }
 
 .ContentContainer {
@@ -69,14 +77,10 @@ ul.header li {
 
 ul.header li a {
   display: block;
-  color: black;
+  color: white;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-}
-
-ul.header li a:hover:not(.active) {
-  background-color: rgb(237, 71, 42);
 }
 
 .errorMessage {
@@ -177,7 +181,7 @@ ul {
   margin-bottom: 50px;
 }
 
-.carIcon {
+.navIcon {
   margin-right: 5px;
 }
 
@@ -200,5 +204,31 @@ ul {
 
 .navText:hover {
   color: rgb(237, 160, 31);
+  cursor: pointer;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+.insight {
+  text-decoration: none;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14pt;
+}
+
+.insight:hover {
+  color: white;
+}
+
+.MenuIcon {
+  color: white;
+  width: 30px;
+  height: 30px;
+  margin-left: 10px;
   cursor: pointer;
 }

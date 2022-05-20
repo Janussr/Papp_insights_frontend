@@ -1,13 +1,13 @@
 import { NavLink } from "react-router-dom";
+import PappLogo from "../img/PappLogo.jpg";
+import { AiOutlineMenu } from "react-icons/ai";
 
-const Header = () => {
+const Header = ({ show, setShow }) => {
 
     return (
-        <div>
-            <ul className='header'>
-                <li><NavLink activeclassname='active' to='/'>Hjem</NavLink></li>
-                <li><NavLink activeclassname='active' to='/reports'>Rapporter</NavLink></li>
-            </ul>
+        <div className="TopBar">
+            <AiOutlineMenu className="MenuIcon" onClick={() => setShow(!show)} />
+            <NavLink className="insight" to='/'><img className="logo" src={PappLogo}></img>Insight</NavLink>
         </div >
 
     )
