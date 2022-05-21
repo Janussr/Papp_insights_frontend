@@ -99,7 +99,7 @@ const Overview = () => {
                                 data={botData}
                                 labels={botLabels}
                                 style={{
-                                    labels: { angle: 15 },
+                                    labels: { angle: 8 },
                                     data: {
                                         fill: 'green'
                                     }
