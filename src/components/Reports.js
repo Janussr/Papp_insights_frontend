@@ -31,7 +31,7 @@ const Reports = () => {
                 <Row>
 
                     {reports.map((report) =>
-                        <Col sm="4" key={report.id} className="ReportBox centerContent reportSection">
+                        <Col sm="4" key={report.id} className="centerContent reportSection">
                             <h2>{report.name}</h2>
                             <h4>{report.date}</h4>
                             <NavLink to={`/report/${report.id}`}><button className="btn btn-secondary">Åben</button></NavLink>
