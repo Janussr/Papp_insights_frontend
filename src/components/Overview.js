@@ -60,7 +60,7 @@ const Overview = () => {
                                 data: { fillOpacity: 0.9, stroke: "white", strokeWidth: 3 }
                             }}
                         />
-                        <h4 className="ChartLabel">Gennemsnitlig Belægning</h4>
+                        <h4 className="ChartLabel">Gennemsnitlig belægning</h4>
 
                     </Col>
                     <Col sm="4">
