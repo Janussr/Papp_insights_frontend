@@ -45,12 +45,12 @@ const Overview = () => {
 
     return (
         <div className="centerContent">
-            {loading ? <h2 className="centerContent">Udarbejder Rapport...</h2> : (<h1></h1>)}
-            <ClipLoader css={override} color='FFFFFF' loading={loading} size={150} />
             <Container>
+                {loading ? <h2 className="centerContent">Klargør Oversigt...</h2> : (<h1></h1>)}
+                <ClipLoader css={override} color='FFFFFF' loading={loading} size={150} />
                 <Row>
-                    <h1>Parkeringsoversigt</h1>
-                    <h3>Lyngby-Taarbæk Kommune</h3>
+                    {!loading ? <h2>Parkeringsoversigt</h2> : (<h2></h2>)}
+                    {!loading ? <h3>Lyngby-Taarbæk Kommune</h3> : (<h3></h3>)}
                     <Col sm="4">
                         <VictoryPie
                             colorScale={["darkred", "darkgreen"]}
@@ -85,7 +85,7 @@ const Overview = () => {
                                 }}
                             />
                         </VictoryChart>
-                        <h4 className="ChartLabel">Parkingsområder men højest belægning</h4>
+                        <h4 className="ChartLabel">Parkingsområder med højest belægning</h4>
                     </Col>
                     <Col sm="4">
                         <VictoryChart>
