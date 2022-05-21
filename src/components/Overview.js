@@ -85,7 +85,7 @@ const Overview = () => {
                                 }}
                             />
                         </VictoryChart>
-                        <h4 className="ChartLabel">Parkingsområder med højest belægning</h4>
+                        <h4 className="ChartLabel">Parkeringsområder med højest belægning</h4>
                     </Col>
                     <Col sm="4">
                         <VictoryChart>
@@ -107,7 +107,7 @@ const Overview = () => {
                                 }
                             />
                         </VictoryChart>
-                        <h4 className="ChartLabel">Parkingsområder med lavest belægning</h4>
+                        <h4 className="ChartLabel">Parkeringsområder med lavest belægning</h4>
                     </Col>
                 </Row>
             </Container>
